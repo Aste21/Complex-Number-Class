@@ -9,6 +9,8 @@ class Complex
 	// friend ReturnType operatorOp(const Type &lhs, const Type &rhs)
 	friend Complex operator+(const Complex &lhs, const Complex &rhs);
 	friend Complex operator-(const Complex &lhs, const Complex &rhs);
+	// friend Complex operator*(const Complex &lhs, const Complex &rhs);
+	// friend Complex operator/(const Complex &lhs, const Complex &rhs);
 	friend std::ostream &operator<<(std::ostream &out, const Complex &toWrite);
 	friend std::istream &operator>>(std::istream &in, Complex &toRead);
 	friend bool operator==(const Complex &lhs, const Complex &rhs);
@@ -27,8 +29,6 @@ public:
 	Complex(int real, int imaginary);
 	Complex(float real, float imaginary);
 	Complex(double real, double imaginary);
-	
-	
 
 	// Copy Constructor
 	// Complex(const Complex &source);
@@ -36,7 +36,13 @@ public:
 	// Destructor
 	// ~Complex();
 
+	// Complex operator=();
 	Complex operator-() const;
 	Complex operator+=(const Complex &rhs);
 	Complex operator-=(const Complex &rhs);
+	// Complex operator*=(const Complex &rhs);
+	// Complex operator/=(const Complex &rhs);
+
+	// Complex returnPhase() const;
+	// Complex returnAmplitude() const;
 };
