@@ -1,84 +1,129 @@
 #include <iostream>
 #include "ComplexNumbers.h"
 
-// int main() {
-//     // Test constructor overloads
-//     Complex a; // Default constructor
-//     Complex b(3.0); // Real number constructor
-//     Complex c(0.0, 4.0); // Real and imaginary number constructor
-
-//     // Test copy constructor
-//     Complex d(b);
-
-//     // Test unary minus operator
-//     Complex e = -c;
-
-//     // Test addition and subtraction operators
-//     Complex f = a + c;
-//     Complex g = b - d;
-
-//     // Test input and output operators
-//     std::cout << "Enter a complex number (e.g., 2 + 3i): ";
-//     Complex h;
-//     std::cin >> h;
-//     std::cout << "You entered: " << h;
-
-//     // Display results
-//     std::cout << "a = " << a;
-//     std::cout << "b = " << b;
-//     std::cout << "c = " << c;
-//     std::cout << "d = " << d;
-//     std::cout << "e = " << e;
-//     std::cout << "f = " << f;
-//     std::cout << "g = " << g;
-//     std::cout << "a == b: " << ((a == b) ? "true" : "false") << std::endl;
-//     std::cout << "c != d: " << ((c != d) ? "true" : "false") << std::endl;
-
-//     return 0;
-// }
-
 int main() {
+    // Create some complex numbers
     Complex a(2.0, 3.0);
-    Complex b(1.0, -1.0);
-    Complex c(3.0, 1.0);
+    Complex b(1.0, 1.0);
+    Complex c(3.0, 2.0);
 
-	std::cout<<"a = "<<a;
-	std::cout<<"b = "<<b;
-	std::cout<<"c = "<<c;
+    std::cout << "a: " << a << " Correct: 2 + 3i" << std::endl;
+    std::cout << "b: " << b << " Correct: 1 + 1i" << std::endl;
+    std::cout << "c: " << c << " Correct: 3 + 2i" << std::endl;
 
-    // Test cases
-    Complex result;
+    // Test addition and subtraction
 
-    // Unary minus
-    result = -a;
-    std::cout << "-a: " << result;
+    std::cout << "a + b - c: " << a + b - c << " Correct: 0 + 2i" << std::endl;
+    std::cout << "((a += b) += c): " << ((a += b) += c) << " Correct: 6 + 6i" << std::endl;
+    std::cout << "a: " << a << " Correct: 6 + 6i" << std::endl;
+    std::cout << "b: " << b << " Correct: 1 + 1i" << std::endl;
+    std::cout << "c: " << c << " Correct: 3 + 2i" << std::endl;
 
-    // Addition and assignment
-    result = a + b;
-    std::cout << "a + b: " << result;
+    a = Complex(2.0, 3.0);
+    b = Complex(1.0, 1.0);
+    c = Complex(3.0, 2.0);
 
-    // Compound addition
-    a += b += c;
-    std::cout << "a += b += c: " << a << b << c;
+    // Test multiplication
 
-    // Addition and compound assignment
-    (a += b) += c;
-    std::cout << "(a += b) += c: " << a << b << c;
+    std::cout << "a * b * c: " << a * b * c << " Correct: -13 + 13i" << std::endl;
+    std::cout << "((a *= b) *= c): " << ((a *= b) *= c) << " Correct: -13 + 13i" << std::endl;
+    std::cout << "a: " << a << " Correct: -13 + 13i" << std::endl;
+    std::cout << "b: " << b << " Correct: 1 + 1i" << std::endl;
+    std::cout << "c: " << c << " Correct: 3 + 2i" << std::endl;
+    a = Complex(2.0, 3.0);
+    b = Complex(1.0, 1.0);
+    c = Complex(3.0, 2.0);
 
-    // Multiplication with real numbers
-    result = a + 7;
-    std::cout << "a + 7: " << result;
+    // Test a += b += c
 
-    result = 7 + a;
-    std::cout << "7 + a: " << result;
+    std::cout << "(a += b += c): " << (a += b += c) << " Correct: 6 + 6i" << std::endl;
+    std::cout << "a: " << a << " Correct: 6 + 6i" << std::endl;
+    std::cout << "b: " << b << " Correct: 4 + 3i" << std::endl;
+    std::cout << "c: " << c << " Correct: 3 + 2i" << std::endl;
 
-    // Equality checks
-    bool equal = c == 3.5;
-    std::cout << "c == 3.5: " << equal << std::endl;
+    a = Complex(2.0, 3.0);
+    b = Complex(1.0, 1.0);
+    c = Complex(3.0, 2.0);
 
-    equal = 3.5 == c;
-    std::cout << "3.5 == c: " << equal << std::endl;
+    // Test a *= b *= c
+
+    std::cout << "(a *= b *= c): " << (a *= b *= c) << " Correct: -13 + 13i" << std::endl;
+    std::cout << "a: " << a << " Correct: -13 + 13i" << std::endl;
+    std::cout << "b: " << b << " Correct: 1 + 5i" << std::endl;
+    std::cout << "c: " << c << " Correct: 3 + 2i" << std::endl;
+
+    a = Complex(2.0, 3.0);
+    b = Complex(1.0, 1.0);
+    c = Complex(3.0, 2.0);
+
+    // Test addition and multiplication with real numbers
+
+    std::cout << "a + 7: " << a + 7.0 << " Correct: 9 + 3i" << std::endl;
+    std::cout << "7 + a: " << 7.0 + a << " Correct: 9 + 3i" << std::endl;
+    std::cout << "b * 5: " << b * 5.0 << " Correct: 5 + 5i" << std::endl;
+    std::cout << "5 * b: " << 5.0 * b << " Correct: 5 + 5i" << std::endl;
+
+    // Test equality comparisons
+
+    std::cout << "c == 3.5: " << (c == 3.5 ? "true" : "false") << " Correct: false" << std::endl;
+    std::cout << "3.5 == c: " << (3.5 == c ? "true" : "false") << " Correct: false" << std::endl;
+
+    // Create some more complex numbers
+    Complex d(4.0, 5.0);
+    Complex e(2.0, 2.0);
+    Complex f(1.0, 3.0);
+    Complex g(7.0); // Construct with a real part, imaginary part defaults to 0
+    Complex h;      // Default constructor, both real and imaginary parts are 0
+
+    std::cout << "d: " << d << " Correct: 4 + 5i" << std::endl;
+    std::cout << "e: " << e << " Correct: 2 + 2i" << std::endl;
+    std::cout << "f: " << f << " Correct: 1 + 3i" << std::endl;
+    std::cout << "g: " << g << " Correct: 7" << std::endl;
+    std::cout << "h: " << h << " Correct: 0" << std::endl;
+
+    // Test addition, subtraction
+
+    std::cout << "d + e: " << d + e << " Correct: 6 + 7i" << std::endl;
+    std::cout << "d - e: " << d - e << " Correct: 2 + 3i" << std::endl;
+    std::cout << "(d += e): " << (d += e) << " Correct: 6 + 7i" << std::endl;
+    std::cout << "d: " << d << " Correct: 6 + 7i" << std::endl;
+    std::cout << "e: " << e << " Correct: 2 + 2i" << std::endl;
+    d = Complex(4.0, 5.0);
+    e = Complex(2.0, 2.0);
+    std::cout << "(d -= e): " << (d -= e) << " Correct: 4 + 5i" << std::endl;
+    std::cout << "d: " << d << " Correct: 4 + 5i" << std::endl;
+    std::cout << "e: " << e << " Correct: 2 + 2i" << std::endl;
+    d = Complex(4.0, 5.0);
+    e = Complex(2.0, 2.0);
+
+    // Test multiplication, division
+
+    std::cout << "d * e: " << d * e << " Correct: -2 + 18i" << std::endl;
+    std::cout << "d / e: " << d / e << " Correct: 2.25 + 0.25i" << std::endl;
+    std::cout << "(d *= e): " << (d *= e) << " Correct: 6 + 18i" << std::endl;
+    std::cout << "d: " << d << " Correct: 6 + 18i" << std::endl;
+    std::cout << "e: " << e << " Correct: 2 + 2i" << std::endl;
+    d = Complex(4.0, 5.0);
+    e = Complex(2.0, 2.0);
+    std::cout << "(d /= e): " << (d /= e) << " Correct: 2.5 + 0.5i" << std::endl;
+    std::cout << "d: " << d << " Correct: 2.5 + 0.5i" << std::endl;
+    std::cout << "e: " << e << " Correct: 2 + 2i" << std::endl;
+    d = Complex(4.0, 5.0);
+    e = Complex(2.0, 2.0);
+
+    // Test equality comparisons
+
+    std::cout << "d == d: " << (d == d ? "true" : "false") << " Correct: true" << std::endl;
+    std::cout << "d == e: " << (d == e ? "true" : "false") << " Correct: false" << std::endl;
+    std::cout << "d != d: " << (d != d ? "true" : "false") << " Correct: false" << std::endl;
+    std::cout << "d != e: " << (d != e ? "true" : "false") << " Correct: true" << std::endl;
+
+    // Test returnPhase and returnAmplitude for d
+    float phaseD = d.returnPhase();
+    float amplitudeD = d.returnAmplitude();
+
+    std::cout << "Phase of d: " << phaseD << " radians" << " Correct: 0.896055" << std::endl;
+    std::cout << "Amplitude of d: " << amplitudeD << " Correct: 6.40312" << std::endl;
 
     return 0;
 }
-
