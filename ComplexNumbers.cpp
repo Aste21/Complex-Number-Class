@@ -27,7 +27,7 @@ Complex::Complex(double real, double imaginary)
 Complex::Complex(const Complex &source)
 	: realNumber{source.realNumber}, imaginaryNumber{source.imaginaryNumber} {}
 
-Complex& Complex::operator=(const Complex &rhs)
+Complex &Complex::operator=(const Complex &rhs)
 {
 	if (this == &rhs)
 	{
@@ -47,14 +47,14 @@ Complex Complex::operator-() const
 	return (Complex(realNumber, -imaginaryNumber));
 }
 
-Complex Complex::operator-=(const Complex &rhs)
+Complex &Complex::operator-=(const Complex &rhs)
 {
 	realNumber -= rhs.realNumber;
 	imaginaryNumber -= rhs.imaginaryNumber;
 	return *this;
 }
 
-Complex Complex::operator+=(const Complex &rhs)
+Complex &Complex::operator+=(const Complex &rhs)
 {
 	realNumber += rhs.realNumber;
 	imaginaryNumber += rhs.imaginaryNumber;
@@ -122,22 +122,26 @@ Complex operator/(const Complex &lhs, const Complex &rhs)
 	return Complex((lhs.realNumber * rhs.realNumber + lhs.imaginaryNumber * rhs.imaginaryNumber) / temp, (lhs.imaginaryNumber * rhs.realNumber - lhs.realNumber * rhs.imaginaryNumber) / temp);
 }
 
-Complex Complex::operator*=(const Complex &rhs)
+Complex &Complex::operator*=(const Complex &rhs)
 {
-	realNumber = realNumber * rhs.realNumber - imaginaryNumber * rhs.imaginaryNumber;
+	float temp = realNumber * rhs.realNumber - imaginaryNumber * rhs.imaginaryNumber;
 	imaginaryNumber = realNumber * rhs.imaginaryNumber + imaginaryNumber * rhs.realNumber;
+	realNumber = temp;
 	return *this;
 }
 
-Complex Complex::operator/=(const Complex &rhs)
+Complex &Complex::operator/=(const Complex &rhs)
 {
 	if (rhs.realNumber == 0 && rhs.imaginaryNumber == 0)
 	{
-		return Complex(0, 0);
+		realNumber = 0;
+		imaginaryNumber = 0;
+		return *this;
 	}
 	float temp = pow(rhs.realNumber, 2) + pow(rhs.imaginaryNumber, 2);
-	realNumber = (realNumber * rhs.realNumber + imaginaryNumber * rhs.imaginaryNumber) / temp;
+	float temp2 = (realNumber * rhs.realNumber + imaginaryNumber * rhs.imaginaryNumber) / temp;
 	imaginaryNumber = (imaginaryNumber * rhs.realNumber - realNumber * rhs.imaginaryNumber) / temp;
+	realNumber = temp2;
 	return *this;
 }
 
