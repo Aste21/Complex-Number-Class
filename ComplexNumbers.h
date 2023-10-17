@@ -34,10 +34,10 @@ public:
 
 	Complex& operator=(const Complex &rhs);
 	Complex operator-() const;
-	Complex operator+=(const Complex &rhs);
-	Complex operator-=(const Complex &rhs);
-	Complex operator*=(const Complex &rhs);
-	Complex operator/=(const Complex &rhs);
+	Complex& operator+=(const Complex &rhs);
+	Complex& operator-=(const Complex &rhs);
+	Complex& operator*=(const Complex &rhs);
+	Complex& operator/=(const Complex &rhs);
 
 	float returnPhase() const;
 	float returnAmplitude() const;
