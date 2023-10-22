@@ -22,11 +22,7 @@ private:
 public:
 	// Constructor
 	Complex();
-	Complex(int real);
-	Complex(float real);
 	Complex(double real);
-	Complex(int real, int imaginary);
-	Complex(float real, float imaginary);
 	Complex(double real, double imaginary);
 
 	// Copy Constructor
