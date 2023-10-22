@@ -6,20 +6,8 @@
 Complex::Complex()
 	: realNumber{0}, imaginaryNumber{0} {}
 
-Complex::Complex(int real)
-	: realNumber(static_cast<float>(real)), imaginaryNumber(0) {}
-
-Complex::Complex(float real)
-	: realNumber{real}, imaginaryNumber{0} {}
-
 Complex::Complex(double real)
 	: realNumber(static_cast<float>(real)), imaginaryNumber(0) {}
-
-Complex::Complex(int real, int imaginary)
-	: realNumber(static_cast<float>(real)), imaginaryNumber(static_cast<float>(imaginary)) {}
-
-Complex::Complex(float real, float imaginary)
-	: realNumber{real}, imaginaryNumber{imaginary} {}
 
 Complex::Complex(double real, double imaginary)
 	: realNumber(static_cast<float>(real)), imaginaryNumber(static_cast<float>(imaginary)) {}
