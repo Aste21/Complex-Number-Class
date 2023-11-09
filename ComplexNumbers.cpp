@@ -150,7 +150,7 @@ float Complex::returnPhase() const
 			return 0; // Undefined, but we can return 0 in this case.
 		}
 	}
-	return atan(imaginaryNumber / realNumber);
+	return atan2(imaginaryNumber, realNumber);
 }
 
 float Complex::returnAmplitude() const
