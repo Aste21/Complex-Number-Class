@@ -1,58 +1,6 @@
 #include <iostream>
 #include "ComplexNumbers.h"
-
-void testClassicConstructor();
-
-void testAdditionAndSubstraction();
-
-void testOfAdditionAssignment();
-
-void testOfMultiplication();
-
-void testOfMultiplicationAssignment();
-
-void testOfAdditionAndSubstractionWithRealNumbers();
-
-void testOfEqualityComparionBetweenComplexAndReal();
-
-void testConstructorOverload();
-
-void anotherTestOfAdditionAndSubstraction();
-
-void testMultiplicationAndDivision();
-
-void testEqualityComparisons();
-
-void testOfPhaseAndAmplitudeFunctions();
-
-int main()
-{
-    testClassicConstructor();
-
-    testAdditionAndSubstraction();
-
-    testOfAdditionAssignment();
-
-    testOfMultiplication();
-
-    testOfMultiplicationAssignment();
-
-    testOfAdditionAndSubstractionWithRealNumbers();
-
-    testOfEqualityComparionBetweenComplexAndReal();
-
-    testConstructorOverload();
-
-    anotherTestOfAdditionAndSubstraction();
-
-    testMultiplicationAndDivision();
-
-    testEqualityComparisons();
-
-    testOfPhaseAndAmplitudeFunctions();
-
-    return 0;
-}
+#include "TestComplexNumbers.h"
 
 void testClassicConstructor()
 {
@@ -205,11 +153,25 @@ void testEqualityComparisons()
     std::cout << "d != e: " << (d != e ? "true" : "false") << " Correct: true" << std::endl;
 }
 
+// 4 quarters
 void testOfPhaseAndAmplitudeFunctions()
 {
     std::cout << "\n\n\n";
     std::cout << "Test of returnPhase and returnAmplitude functions: \n\n";
     Complex d(4.0, 5.0);
+    std::cout << "Quarter I: " << std::endl;
     std::cout << "Phase of d: " << d.returnPhase() << " radians"<< " Correct: 0.896055" << std::endl;
+    std::cout << "Amplitude of d: " << d.returnAmplitude() << " Correct: 6.40312" << std::endl;
+    d = Complex(-4.0, 5.0);
+    std::cout << "Quarter II: " << std::endl;
+    std::cout << "Phase of d: " << d.returnPhase() << " radians"<< " Correct: 2.2455" << std::endl;
+    std::cout << "Amplitude of d: " << d.returnAmplitude() << " Correct: 6.40312" << std::endl;
+    d = Complex(-4.0, -5.0);
+    std::cout << "Quarter III: " << std::endl;
+    std::cout << "Phase of d: " << d.returnPhase() << " radians"<< " Correct: -2.2455" << std::endl;
+    std::cout << "Amplitude of d: " << d.returnAmplitude() << " Correct: 6.40312" << std::endl;
+    d = Complex(4.0, -5.0);
+    std::cout << "Quarter IV: " << std::endl;
+    std::cout << "Phase of d: " << d.returnPhase() << " radians"<< " Correct: -0.896055" << std::endl;
     std::cout << "Amplitude of d: " << d.returnAmplitude() << " Correct: 6.40312" << std::endl;
 }
