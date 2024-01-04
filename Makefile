@@ -1,8 +1,8 @@
 # List your *.h files (if you do not have them in your project then leave the variable "headers" empty):
-headers = ComplexNumbers.h
+headers = ComplexNumbers.h TestComplexNumbers.h
 
 # List your *.c files:
-sources = TestComplexNumbers.cpp ComplexNumbers.cpp
+sources = TestComplexNumbers.cpp TestComplexNumbersMain.cpp ComplexNumbers.cpp
 
 
 # Specify name of your program:
